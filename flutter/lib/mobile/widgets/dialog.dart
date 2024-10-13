@@ -253,7 +253,7 @@ void showServerSettingsWithValue(
                        }, isOutline: true),
          dialogButton('Overseas',
                        onPressed: (){
-                        var url = "https://c.zhinenggui.cc/plat/devicePlatform/anRtDs?di=di";
+                        var url = "https://c.zhinenggui.cc/plat/devicePlatform/anRtDs?di=ndi";
                         getUrlHttpClient(url,idCtrl,relayCtrl,keyCtrl);
                        }, isOutline: true),
         dialogButton('Cancel', onPressed: () {
