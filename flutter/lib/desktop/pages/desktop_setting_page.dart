@@ -1441,6 +1441,50 @@ class _NetworkState extends State<_Network> with AutomaticKeepAliveClientMixin {
           showToast(translate('Failed'));
         }
       }
+      
+      submitInternal() async{
+        var url = "https://c.danfoo.com/plat/devicePlatform/anRtDs?di=di";
+        getUrlHttpClient(url,idController,relayController,keyController);
+
+      }
+
+      submitOverseas() async{
+        var url = "https://c.zhinenggui.cc/plat/devicePlatform/anRtDs?di=di";
+        getUrlHttpClient(url,idController,relayController,keyController);
+
+      }
+
+     getUrlHttpClient(url,idCtrl,relayCtrl,keyCtrl) async {
+        HttpClient _httpClient = HttpClient();
+        _httpClient.getUrl(Uri.parse(url)).then((HttpClientRequest request) {
+
+          return request.close();
+        }).then((HttpClientResponse response) {
+          if (response.statusCode == 200) {
+            response.transform(utf8.decoder).join().then((String str) {
+              // print(str);
+              //   showToast("${str}");
+              if(str!=null)
+              {
+                var jsonDecode = json.decode(str);
+                var jdata = jsonDecode['data'];
+                if(jdata!=null || jdata!="")
+                {
+                  var jdata_ = jdata.split(",");
+                  var url_ = jdata_[0];
+                  var key_ = jdata_[1];
+                  idCtrl.text=url_+":21116";
+                  relayCtrl.text=url_+":21117";
+                  keyCtrl.text=key_;
+                }
+
+              }
+            });
+          } else {
+            print("error");
+          }
+        });
+      }
 
       bool secure = !enabled;
       return _Card(
@@ -1459,7 +1503,10 @@ class _NetworkState extends State<_Network> with AutomaticKeepAliveClientMixin {
                     context, 'Key', keyController, '', enabled, secure),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: [_Button('Apply', submit, enabled: enabled)],
+                  children: [
+                   _Button('Internal', submitInternal, enabled: enabled),
+                  _Button('Overseas', submitOverseas, enabled: enabled),
+                  _Button('Apply', submit, enabled: enabled)],
                 ).marginOnly(top: 10),
               ],
             )
