@@ -1459,37 +1459,7 @@ class _NetworkState extends State<_Network> with AutomaticKeepAliveClientMixin {
 
       }
 
-     getUrlHttpClient(url,idCtrl,relayCtrl,keyCtrl) async {
-        HttpClient _httpClient = HttpClient();
-        _httpClient.getUrl(Uri.parse(url)).then((HttpClientRequest request) {
 
-          return request.close();
-        }).then((HttpClientResponse response) {
-          if (response.statusCode == 200) {
-            response.transform(utf8.decoder).join().then((String str) {
-              // print(str);
-              //   showToast("${str}");
-              if(str!=null)
-              {
-                var jsonDecode = json.decode(str);
-                var jdata = jsonDecode['data'];
-                if(jdata!=null || jdata!="")
-                {
-                  var jdata_ = jdata.split(",");
-                  var url_ = jdata_[0];
-                  var key_ = jdata_[1];
-                  idCtrl.text=url_+":21116";
-                  relayCtrl.text=url_+":21117";
-                  keyCtrl.text=key_;
-                }
-
-              }
-            });
-          } else {
-            print("error");
-          }
-        });
-      }
 
       bool secure = !enabled;
       return _Card(
@@ -1519,6 +1489,38 @@ class _NetworkState extends State<_Network> with AutomaticKeepAliveClientMixin {
     }
 
     return tmpWrapper();
+  }
+
+  getUrlHttpClient(url,idCtrl,relayCtrl,keyCtrl) async {
+    HttpClient _httpClient = HttpClient();
+    _httpClient.getUrl(Uri.parse(url)).then((HttpClientRequest request) {
+
+      return request.close();
+    }).then((HttpClientResponse response) {
+      if (response.statusCode == 200) {
+        response.transform(utf8.decoder).join().then((String str) {
+          // print(str);
+          //   showToast("${str}");
+          if(str!=null)
+          {
+            var jsonDecode = json.decode(str);
+            var jdata = jsonDecode['data'];
+            if(jdata!=null || jdata!="")
+            {
+              var jdata_ = jdata.split(",");
+              var url_ = jdata_[0];
+              var key_ = jdata_[1];
+              idCtrl.text=url_+":21116";
+              relayCtrl.text=url_+":21117";
+              keyCtrl.text=key_;
+            }
+
+          }
+        });
+      } else {
+        print("error");
+      }
+    });
   }
 }
 
