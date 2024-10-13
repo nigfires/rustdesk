@@ -7,6 +7,11 @@ import 'package:get/get.dart';
 import '../../common.dart';
 import '../../models/platform_model.dart';
 
+import 'dart:convert';
+import 'dart:io';
+import 'dart:convert' show json;
+import 'package:http/http.dart' as http; //导入前需要配置
+
 void _showSuccess() {
   showToast(translate("Successful"));
 }
