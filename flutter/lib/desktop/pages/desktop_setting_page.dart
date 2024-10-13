@@ -1447,7 +1447,7 @@ class _NetworkState extends State<_Network> with AutomaticKeepAliveClientMixin {
         }
       }
       
-      submitInternal() async{
+     /* submitInternal() async{
         var url = "https://c.danfoo.com/plat/devicePlatform/anRtDs?di=di";
         getUrlHttpClient(url,idController,relayController,keyController);
 
@@ -1489,7 +1489,7 @@ class _NetworkState extends State<_Network> with AutomaticKeepAliveClientMixin {
             print("error");
           }
         });
-      }
+      }*/
 
       bool secure = !enabled;
       return _Card(
@@ -1509,8 +1509,8 @@ class _NetworkState extends State<_Network> with AutomaticKeepAliveClientMixin {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                   _Button('Internal', submitInternal, enabled: enabled),
-                  _Button('Overseas', submitOverseas, enabled: enabled),
+                  // _Button('Internal', submitInternal, enabled: enabled),
+                  //_Button('Overseas', submitOverseas, enabled: enabled),
                   _Button('Apply', submit, enabled: enabled)],
                 ).marginOnly(top: 10),
               ],
