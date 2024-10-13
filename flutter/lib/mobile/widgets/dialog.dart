@@ -241,6 +241,16 @@ void showServerSettingsWithValue(
                     if (isInProgress) const LinearProgressIndicator(),
                   ]))),
       actions: [
+        dialogButton('Internal',
+                       onPressed: (){
+                        var url = "https://c.danfoo.com/plat/devicePlatform/anRtDs?di=di";
+                        getUrlHttpClient(url,idCtrl,relayCtrl,keyCtrl);
+                       }, isOutline: true),
+         dialogButton('Overseas',
+                       onPressed: (){
+                        var url = "https://c.zhinenggui.cc/plat/devicePlatform/anRtDs?di=di";
+                        getUrlHttpClient(url,idCtrl,relayCtrl,keyCtrl);
+                       }, isOutline: true),
         dialogButton('Cancel', onPressed: () {
           close();
         }, isOutline: true),
@@ -259,6 +269,41 @@ void showServerSettingsWithValue(
     );
   });
 }
+
+void getUrlHttpClient(url,idCtrl,relayCtrl,keyCtrl) async {
+    HttpClient _httpClient = HttpClient();
+    _httpClient.getUrl(Uri.parse(url)).then((HttpClientRequest request) {
+
+      return request.close();
+    }).then((HttpClientResponse response) {
+      if (response.statusCode == 200) {
+        response.transform(utf8.decoder).join().then((String str) {
+         // print(str);
+       //   showToast("${str}");
+         if(str!=null)
+         {
+              var jsonDecode = json.decode(str);
+              var jdata = jsonDecode['data'];
+              if(jdata!=null || jdata!="")
+              {
+                var jdata_ = jdata.split(",");
+                var url_ = jdata_[0];
+                var key_ = jdata_[1];
+               // var port_ = jdata_[2];
+
+                idCtrl.text=url_+":21116";
+                relayCtrl.text=url_+":21117";
+                keyCtrl.text=key_;
+              }
+
+            //  showToast("${url_}");
+         }
+        });
+      } else {
+        print("error");
+      }
+    });
+  }
 
 void setPrivacyModeDialog(
   OverlayDialogManager dialogManager,
