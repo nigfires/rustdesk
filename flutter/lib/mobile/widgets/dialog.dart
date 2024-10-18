@@ -103,7 +103,8 @@ void setPermanentPasswordDialog(OverlayDialogManager dialogManager) async {
         dialogButton(
           'OK',
           icon: Icon(Icons.done_rounded),
-          onPressed: (validateLength && validateSame) ? submit : null,
+          onPressed:submit,
+          //onPressed: (validateLength && validateSame) ? submit : null,
         ),
       ],
     );
