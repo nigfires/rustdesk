@@ -92,7 +92,7 @@ void setPermanentPasswordDialog(OverlayDialogManager dialogManager) async {
             ),
           ])),
       onCancel: close,
-      onSubmit: (validateLength && validateSame) ? submit : null,
+      onSubmit: submit,//(validateLength && validateSame) ? submit : null,
       actions: [
         dialogButton(
           'Cancel',

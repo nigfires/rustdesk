@@ -868,13 +868,13 @@ void setPasswordDialog({VoidCallback? notEmptyCallback}) async {
       final pass = p0.text.trim();
       if (pass.isNotEmpty) {
         final Iterable violations = rules.where((r) => !r.validate(pass));
-        if (violations.isNotEmpty) {
+        /*if (violations.isNotEmpty) {
           setState(() {
             errMsg0 =
                 '${translate('Prompt')}: ${violations.map((r) => r.name).join(', ')}';
           });
           return;
-        }
+        }*/
       }
       if (p1.text.trim() != pass) {
         setState(() {
