@@ -100,7 +100,7 @@ const CHARS: &[char] = &[
     'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
 ];
 
-pub const RENDEZVOUS_SERVERS: &[&str] = &["rdhk.jijia.cloud"];
+pub const RENDEZVOUS_SERVERS: &[&str] = &["rdcn.jijiayun.com"];
 pub const PUBLIC_RS_PUB_KEY: &str = "tyhU4UAkupG+9pO7B0azz6mQTD9i8CI7ZtvBk3cK3Ds=";
 
 pub const RS_PUB_KEY: &str = match option_env!("RS_PUB_KEY") {
