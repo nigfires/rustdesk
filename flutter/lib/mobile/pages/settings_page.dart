@@ -565,7 +565,8 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
     }
 
     enhancementsTiles.add(SettingsTile.switchTile(
-        initialValue: !_floatingWindowDisabled,
+        //initialValue: !_floatingWindowDisabled,
+        initialValue:_floatingWindowDisabled,
         title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(translate('Floating window')),
           Text('* ${translate('floating_window_tip')}',
