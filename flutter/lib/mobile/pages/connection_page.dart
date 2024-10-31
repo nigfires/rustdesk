@@ -126,7 +126,7 @@ class _ConnectionPageState extends State<ConnectionPage> {
   }
 
   Widget _buildUpdateUI() {
-    return false;
+    return const SizedBox(height: 0);
   }
 
 
