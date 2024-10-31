@@ -105,15 +105,15 @@ class _ConnectionPageState extends State<ConnectionPage> {
 
   /// UI for software update.
   /// If [_updateUrl] is not empty, shows a button to update the software.
-  Widget _buildUpdateUI() {
+  Widget _buildUpdateUI_bak() {
     return _updateUrl.isEmpty
         ? const SizedBox(height: 0)
         : InkWell(
             onTap: () async {
               final url = 'https://rustdesk.com/download';
-              if (await canLaunchUrl(Uri.parse(url))) {
+             /* if (await canLaunchUrl(Uri.parse(url))) {
                 await launchUrl(Uri.parse(url));
-              }
+              }*/
             },
             child: Container(
                 alignment: AlignmentDirectional.center,
@@ -123,6 +123,11 @@ class _ConnectionPageState extends State<ConnectionPage> {
                 child: Text(translate('Download new version'),
                     style: const TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold))));
+  }
+
+  Widget _buildUpdateUI() {
+    return null;
+
   }
 
   Future<void> _fetchPeers() async {
