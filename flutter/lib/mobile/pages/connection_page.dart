@@ -126,9 +126,9 @@ class _ConnectionPageState extends State<ConnectionPage> {
   }
 
   Widget _buildUpdateUI() {
-    return 0;
-
+    return _updateUrl.isEmpty;
   }
+  
 
   Future<void> _fetchPeers() async {
     setState(() {
