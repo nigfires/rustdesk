@@ -584,11 +584,14 @@ class _PermissionCheckerState extends State<PermissionChecker> {
                       bind.mainGetLocalOption(key: "show-scam-warning") != "N"
                   ? () => showScamWarning(context, serverModel)
                   : serverModel.toggleService),*/
+              //screen record
               serverModel.toggleService),
-          PermissionRow(translate("Input Control"), serverModel.inputOk,
+         // PermissionRow(translate("Input Control"), serverModel.inputOk,
+              //input control
               serverModel.toggleInput),
-          PermissionRow(translate("Transfer file"), serverModel.fileOk,
-              serverModel.toggleFile),
+          PermissionRow(translate("Transfer file"),
+          serverModel.fileOk,
+          serverModel.toggleFile),
           hasAudioPermission
               ? PermissionRow(translate("Audio Capture"), serverModel.audioOk,
                   serverModel.toggleAudio)
