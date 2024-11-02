@@ -70,7 +70,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
       false; //androidVersion >= 26; // remove because not work on every device
   var _ignoreBatteryOpt = false;
   var _enableStartOnBoot = false;
-  var _floatingWindowDisabled = false;
+  var _floatingWindowDisabled = true;
   var _keepScreenOn = KeepScreenOn.duringControlled; // relay on floating window
   var _enableAbr = false;
   var _denyLANDiscovery = false;
@@ -565,8 +565,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
     }
 
     enhancementsTiles.add(SettingsTile.switchTile(
-        //initialValue: !_floatingWindowDisabled,
-        initialValue:_floatingWindowDisabled,
+        initialValue: !_floatingWindowDisabled,
         title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(translate('Floating window')),
           Text('* ${translate('floating_window_tip')}',
