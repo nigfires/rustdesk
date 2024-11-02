@@ -141,7 +141,8 @@ class MainActivity : FlutterActivity() {
                     if (call.arguments is String) {
                         result.success(XXPermissions.isGranted(context, call.arguments as String))
                     } else {
-                        result.success(false)
+                       // result.success(false)
+                        result.success(true)
                     }
                 }
                 "request_permission" -> {
@@ -149,7 +150,8 @@ class MainActivity : FlutterActivity() {
                         requestPermission(context, call.arguments as String)
                         result.success(true)
                     } else {
-                        result.success(false)
+                        //result.success(false)
+                        result.success(true)
                     }
                 }
                 START_ACTION -> {
