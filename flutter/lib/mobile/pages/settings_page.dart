@@ -526,20 +526,20 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
         onToggle: (toValue) async {
           if (toValue) {
             // 1. request kIgnoreBatteryOptimizations
-            if (!await AndroidPermissionManager.check(
+           /* if (!await AndroidPermissionManager.check(
                 kRequestIgnoreBatteryOptimizations)) {
               if (!await AndroidPermissionManager.request(
                   kRequestIgnoreBatteryOptimizations)) {
                 return;
               }
-            }
+            }*/
 
             // 2. request kSystemAlertWindow
-            if (!await AndroidPermissionManager.check(kSystemAlertWindow)) {
+         /*   if (!await AndroidPermissionManager.check(kSystemAlertWindow)) {
               if (!await AndroidPermissionManager.request(kSystemAlertWindow)) {
                 return;
               }
-            }
+            }*/
 
             // (Optional) 3. request input permission
           }
