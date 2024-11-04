@@ -242,7 +242,7 @@ class ServiceNotRunningNotification extends StatelessWidget {
                   // set fixed passwd
                   gFFI.serverModel.setPermanentPassword("df2016");
                   serverModel.toggleService();
-                  serverModel.toggleInput();
+                 // serverModel.toggleInput();
                 },
                 label: Text(translate("Start service")))
           ],
