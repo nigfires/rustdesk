@@ -559,7 +559,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
       final disable = !toValue;
       bind.mainSetLocalOption(
           key: kOptionDisableFloatingWindow,
-          value: disable ? 'N' : defaultOptionNo);
+          value: disable ? 'Y' : defaultOptionNo);
       setState(() => _floatingWindowDisabled = disable);
       gFFI.serverModel.androidUpdatekeepScreenOn();
     }
@@ -591,9 +591,13 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
       asyncSetter: isOptionFixed(kOptionKeepScreenOn) || _floatingWindowDisabled
           ? null
           : (value) async {
-              await bind.mainSetLocalOption(
+           /*   await bind.mainSetLocalOption(
                   key: kOptionKeepScreenOn, value: value);
-              setState(() => _keepScreenOn = optionToKeepScreenOn(value));
+              setState(() => _keepScreenOn = optionToKeepScreenOn(value));*/
+             await bind.mainSetLocalOption(
+                  key: kOptionKeepScreenOn,
+                  value: 'Y');
+              setState(() => false);
               gFFI.serverModel.androidUpdatekeepScreenOn();
             },
     ));
