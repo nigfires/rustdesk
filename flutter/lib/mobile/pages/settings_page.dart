@@ -578,6 +578,8 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
         //    ? null
           //  : onFloatingWindowChanged));
 
+
+    
     enhancementsTiles.add(_getPopupDialogRadioEntry(
       title: 'Keep screen on',
       list: [
