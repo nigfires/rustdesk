@@ -48,11 +48,9 @@ String _keepScreenOnToOption(KeepScreenOn value) {
     case KeepScreenOn.never:
       return 'never';
     case KeepScreenOn.duringControlled:
-    //  return 'during-controlled';
-      return 'never';
+      return 'during-controlled';
     case KeepScreenOn.serviceOn:
-     // return 'service-on';
-      return 'never';
+      return 'service-on';
   }
 }
 
@@ -72,7 +70,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
       false; //androidVersion >= 26; // remove because not work on every device
   var _ignoreBatteryOpt = false;
   var _enableStartOnBoot = false;
-  var _floatingWindowDisabled = true;
+  var _floatingWindowDisabled = false;
   var _keepScreenOn = KeepScreenOn.duringControlled; // relay on floating window
   var _enableAbr = false;
   var _denyLANDiscovery = false;
@@ -572,7 +570,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
           Text(translate('Floating window')),
           Text('* ${translate('floating_window_tip')}',
               style: Theme.of(context).textTheme.bodySmall),
-        ]),
+        ])_floatingWindowDisabled
         onToggle: bind.mainIsOptionFixed(key: kOptionDisableFloatingWindow)
             ? null
             : onFloatingWindowChanged));

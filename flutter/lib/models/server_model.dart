@@ -385,7 +385,8 @@ class ServerModel with ChangeNotifier {
         stopService();
       }
     } else {
-      await checkRequestNotificationPermission();
+      startService();
+      /*await checkRequestNotificationPermission();
       if (bind.mainGetLocalOption(key: kOptionDisableFloatingWindow) != 'Y') {
         await checkFloatingWindowPermission();
       }
@@ -413,7 +414,7 @@ class ServerModel with ChangeNotifier {
       });
       if (res == true) {
         startService();
-      }
+      }*/
     }
   }
 
