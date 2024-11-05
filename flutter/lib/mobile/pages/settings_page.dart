@@ -570,7 +570,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
           Text(translate('Floating window')),
           Text('* ${translate('floating_window_tip')}',
               style: Theme.of(context).textTheme.bodySmall),
-        ])_floatingWindowDisabled
+        ]),
         onToggle: bind.mainIsOptionFixed(key: kOptionDisableFloatingWindow)
             ? null
             : onFloatingWindowChanged));
