@@ -565,18 +565,15 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
     }
 
     enhancementsTiles.add(SettingsTile.switchTile(
-        initialValue: _floatingWindowDisabled,
+        initialValue: !_floatingWindowDisabled,
         title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(translate('Floating window')),
           Text('* ${translate('floating_window_tip')}',
               style: Theme.of(context).textTheme.bodySmall),
         ]),
-        onToggle: bind.mainIsOptionFixed(key: kOptionDisableFloatingWindow)
-            ? null
-            : null));
-       // onToggle: bind.mainIsOptionFixed(key: kOptionDisableFloatingWindow)
-        //    ? null
-          //  : onFloatingWindowChanged));
+       onToggle: bind.mainIsOptionFixed(key: kOptionDisableFloatingWindow)
+           ? null
+            : onFloatingWindowChanged));
 
 
     
